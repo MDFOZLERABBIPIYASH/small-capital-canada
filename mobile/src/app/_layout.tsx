@@ -1,30 +1,60 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
 import { Stack } from "expo-router";
-import { useColorScheme } from "react-native";
-import "../global.css";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  return (
+    <>
+      <StatusBar style="light" />
 
-  return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack
+        screenOptions={{
+          contentStyle: {
+            backgroundColor: "#1E1E1E",
+          },
+          headerStyle: {
+            backgroundColor: "#1E1E1E",
+          },
+          headerTintColor: "#FFFFFF",
+          headerTitleStyle: {
+            fontWeight: "600",
+          },
+        }}
+      >
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: false,
+          }}
+        />
 
-        <Stack.Screen name="stock-details" options={{ headerShown: false }} />
-      </Stack>
-    </ThemeProvider>
-  );
+        <Stack.Screen
+          name="screen1"
+          options={{
+            title: "All Stocks",
+          }}
+        />
+
+        <Stack.Screen
+          name="screen2"
+          options={{
+            title: "Potential Breakouts",
+          }}
+        />
+
+        <Stack.Screen
+          name="screen3"
+          options={{
+            title: "Recent News",
+          }}
+        />
+
+        <Stack.Screen
+          name="stock/index"
+          options={{
+            title: "Stock Details",
+          }}
+        />
+      </Stack>
+    </>
+  );
 }
-<Stack
-  screenOptions={{
-    headerShown: false,
-  }}
->
-  <Stack.Screen name="index" />
-  <Stack.Screen name="stock-details" />
-</Stack>;

@@ -4,6 +4,7 @@ import { View } from "react-native";
 import WelcomeHeader from "../components/home/WelcomeHeader";
 import FeatureCards from "../components/home/FeatureCards";
 import WelcomeHero from "../components/home/WelcomeHero";
+import BannerCarousel from "../components/home/BannerCarousel";
 
 export default function HomeScreen() {
   return (
@@ -21,6 +22,8 @@ export default function HomeScreen() {
       >
         <WelcomeHero />
         <FeatureCards />
+        <BannerCarousel />
+
       </ScrollView>
     </View>
   );

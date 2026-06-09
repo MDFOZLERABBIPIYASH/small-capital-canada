@@ -24,3 +24,31 @@ export const featureCards = [
   },
 
 ];
+
+export const bannerInfo = [
+  {
+    id: "1",
+    title: "Enter the Crypto Market with expert insights",
+    description:
+      "Browse all of the listed stocks on the TSX Venture Exchange",
+    image: require("../../assets/images/banner-1-img.png"),
+  },
+
+  {
+    id: "2",
+    title: "Potential Breakout Stocks",
+    description:
+      "Discover promising opportunities before the crowd.",
+    image: require("../../assets/images/banner-1-img.png"),
+
+  },
+
+  {
+    id: "3",
+    title: "Latest Market News",
+    description:
+      "Stay informed with real-time market coverage.",
+    image: require("../../assets/images/banner-1-img.png"),
+
+  },
+];

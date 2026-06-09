@@ -1,10 +1,10 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text } from "react-native";
 
-export default function Screen3() {
+export default function Screen1() {
   return (
-    <SafeAreaView className="flex-1 bg-[#1E1E1E] items-center justify-center">
-      <Text className="text-white text-3xl font-bold">
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#1E1E1E", alignItems: "center", justifyContent: "center" }}>
+      <Text style={{ color: "#FFFFFF", fontSize: 24, fontWeight: "600" }}>
         Screen 3
       </Text>
     </SafeAreaView>

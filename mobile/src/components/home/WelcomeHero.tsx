@@ -159,13 +159,15 @@ export default function WelcomeHero() {
                   key={stock.symbol}
                   logo={stock.logo}
                   change={stock.change}
-                  onPress={() => router.push("/stock")}
+                  onPress={() => router.push("/screen1")}
                 />
               ))
             )}
           </ScrollView>
 
           <Text
+            onPress={() => router.push("/screen1")}
+            
             style={{
               color: "#FFFFFF",
               fontSize: 20,
