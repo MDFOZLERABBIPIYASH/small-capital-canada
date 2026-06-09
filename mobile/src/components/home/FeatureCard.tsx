@@ -1,51 +1,85 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Pressable, Text, View } from "react-native";
+import { BlurView } from "expo-blur";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-type FeatureCardProps = {
+type Props = {
   title: string;
   description: string;
-  icon: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  onPress?: () => void;
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#f7f7f7",
-    borderRadius: 20,
-    padding: 20,
-    gap: 5,
-    width: 250,
-    minHeight: 100,
-  },
-
-  title: {
-    fontSize: 20,
-    fontWeight: "700",
-    },
-
-  description: {
-    fontSize: 16,
-    color: "#64748B",
-    },
-});
-
 
 export default function FeatureCard({
   title,
   description,
   icon,
-}: FeatureCardProps) {
+  onPress,
+}: Props) {
   return (
-    <Pressable>
-        <View style={styles.card}>
-        <Ionicons
-        name={icon as any}
-        size={28}
-        color="#4F46E5"
-        />
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.description}>{description}</Text>
-    </View>
+    <Pressable
+      onPress={onPress}
+      style={{
+        width: 290,
+        height: 170,
+        marginRight: 16,
+        
+      }}
+    >
+      <BlurView
+        intensity={0.8}
+        tint="light"
+        style={{
+          flex: 1,
+          overflow: "hidden",
+          borderRadius: 20,
+          backgroundColor: "rgba(38,38,38,0.9)",
+          borderWidth: 1,
+          borderColor: "rgba(255,255,255,0.15)",
+        }}
+      >
+        <View
+          style={{
+            flex: 1,
+            paddingHorizontal: 20,
+            paddingTop: 18,
+            paddingBottom: 18,
+          }}
+        >
+          {/* Icon */}
+          <Ionicons
+            name={icon}
+            size={28}
+            color="#F5F5F5"
+            style={{ marginBottom: 18 }}
+          />
+
+          {/* Title */}
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "600",
+              color: "#F5F5F5",
+              marginBottom: 10,
+              letterSpacing: -0.3,
+            }}
+          >
+            {title}
+          </Text>
+
+          {/* Description */}
+          <Text
+            numberOfLines={3}
+            style={{
+              fontSize: 15,
+              lineHeight: 22,
+              color: "#8A8A8A",
+            }}
+          >
+            {description}
+          </Text>
+        </View>
+
+      </BlurView>
     </Pressable>
-    
   );
 }

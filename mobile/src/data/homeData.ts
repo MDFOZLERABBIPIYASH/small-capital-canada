@@ -4,6 +4,7 @@ export const featureCards = [
     title: "All Stocks",
     description: "Browse all of the listed stocks on the TSX Venture Exchange",
     icon: "bar-chart-outline",
+    route: "/screen1",
   },
 
   {
@@ -11,6 +12,7 @@ export const featureCards = [
     title: "Potential Breakouts",
     description: "Discover promising opportunities",
     icon: "rocket-outline",
+    route: "/screen2",
   },
 
   {
@@ -18,11 +20,7 @@ export const featureCards = [
     title: "Recent News",
     description: "Stay updated with market news!",
     icon: "newspaper-outline",
+    route: "/screen3",
   },
-  {
-    id: "arektaCard",
-    title: "arekta card",
-    description: "Stay updated with market news!",
-    icon: "newspaper-outline",
-  },
+
 ];

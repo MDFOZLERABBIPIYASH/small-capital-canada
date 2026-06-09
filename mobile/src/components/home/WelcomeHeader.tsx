@@ -1,66 +1,108 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-import { Pressable } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { ScrollView, Text, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import StockChip from "./StockChip";
 
-const styles = StyleSheet.create({
-  
-  avatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+const placeholderStocks = [
+  {
+    symbol: "AAPL",
+    change: 2.54,
   },
-  leftSection: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 15,
+  {
+    symbol: "TSLA",
+    change: -1.32,
   },
-    container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingTop: 70,
+  {
+    symbol: "NVDA",
+    change: 4.88,
   },
-  textContainer: {
-    flexDirection: "column",
+  {
+    symbol: "MSFT",
+    change: 1.64,
   },
-
-  greeting: {
-    fontSize: 26,
-    lineHeight: 30,
-    fontWeight: "700",
-    },
-
-    subtitle: {
-    fontSize: 16,
-    color: "#64748B",
-    marginTop: 4,
-    },
-  
-});
+];
 
 export default function WelcomeHeader() {
   return (
-    <View style={styles.container}>
-        <View style={styles.leftSection}>
-        <Image
-        source={{
-          uri: "https://smallcapcanada.com/images/logo-icon.png",
+    <LinearGradient
+      colors={["#8B0000", "#3A0909", "#111111"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{
+        borderRadius: 28,
+        padding: 24,
+        marginBottom: 28,
+      }}
+    >
+      
+      {/* Greeting */}
+      <Text
+        style={{
+          color: "#A1A1AA",
+          fontSize: 16,
+          marginBottom: 4,
         }}
-        style={styles.avatar}
-      />  
-      <View style={styles.textContainer}>
-        <Text style={styles.greeting}>Hello</Text>
-        <Text style={styles.subtitle}>Welcome to Small Caps Canada</Text>
+      >
+        Welcome to
+      </Text>
+
+      <Text
+        style={{
+          color: "#FFFFFF",
+          fontSize: 32,
+          fontWeight: "700",
+          marginBottom: 28,
+        }}
+      >
+        Small Caps Canada
+      </Text>
+
+      {/* Portfolio */}
+      <Text
+        style={{
+          color: "#A1A1AA",
+          fontSize: 14,
+          marginBottom: 6,
+        }}
+      >
+        Portfolio Value
+      </Text>
+
+      <Text
+        style={{
+          color: "#FFFFFF",
+          fontSize: 38,
+          fontWeight: "700",
+        }}
+      >
+        $24,582.13
+      </Text>
+
+      <Text
+        style={{
+          color: "#22C55E",
+          fontSize: 16,
+          fontWeight: "600",
+          marginTop: 6,
+        }}
+      >
+        +$1,245.32 (+5.34%)
+      </Text>
+
+      {/* Stocks */}
+      <View className="mt-8">
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          {placeholderStocks.map((stock) => (
+            <StockChip
+              key={stock.symbol}
+              symbol={stock.symbol}
+              change={stock.change}
+            />
+          ))}
+        </ScrollView>
       </View>
-    </View>
-    <Pressable>
-    <Ionicons
-        name="notifications-outline"
-        size={28}
-        color="black"
-    />
-    </Pressable>
-    </View>
-    
+    </LinearGradient>
   );
 }
